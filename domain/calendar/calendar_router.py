@@ -23,6 +23,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
         event_name=event.event_name,
         location=event.location,
         duration=event.duration,
+        notes=event.notes,
     )
     db.add(db_event)
     db.commit()
@@ -63,6 +64,7 @@ def update_event(event_id: int, event: EventUpdate, db: Session = Depends(get_db
     db_event.event_name = event.event_name
     db_event.location = event.location
     db_event.duration = event.duration
+    db_event.notes = event.notes
 
     db.commit()
     db.refresh(db_event)

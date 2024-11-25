@@ -8,6 +8,7 @@ class EventCreate(BaseModel):
     event_name: str
     location: str
     duration: str
+    notes: str
 
 
 class EventUpdate(BaseModel):
@@ -15,7 +16,7 @@ class EventUpdate(BaseModel):
     event_name: str
     location: str
     duration: str
-
+    notes: str
 
 class EventResponse(EventCreate):
     id: int

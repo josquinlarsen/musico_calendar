@@ -23,6 +23,7 @@ class Event(Base):
     event_name = Column(String, index=True)
     location = Column(String, index=True)
     duration = Column(String, index=True)
+    notes = Column(String, index=True)
 
 
 # Create the database table
