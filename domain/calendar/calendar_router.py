@@ -54,7 +54,7 @@ def update_event(event_id: int, event: EventUpdate, db: Session = Depends(get_db
         raise HTTPException(status_code=404, detail="Event not found")
 
     check_date = db.query(Event).filter_by(date=event.date).first()
-    if check_date:
+    if check_date and check_date.id != event_id:
         raise HTTPException(
             status_code=400,
             detail=f"I'm sorry, {event.date} is taken. Please reschedule",
