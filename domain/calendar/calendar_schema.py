@@ -5,7 +5,7 @@ from datetime import date
 # Pydantic schemas
 class EventCreate(BaseModel):
     date: date
-    event_name: str
+    event_type: str
     location: str
     duration: str
     notes: str
@@ -13,7 +13,7 @@ class EventCreate(BaseModel):
 
 class EventUpdate(BaseModel):
     date: date
-    event_name: str
+    event_type: str
     location: str
     duration: str
     notes: str

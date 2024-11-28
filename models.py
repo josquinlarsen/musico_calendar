@@ -14,7 +14,7 @@ class Event(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     date = Column(Date, index=True)
-    event_name = Column(String, index=True)
+    event_type = Column(String, index=True)
     location = Column(String, index=True)
     duration = Column(String, index=True)
     notes = Column(String, index=True)

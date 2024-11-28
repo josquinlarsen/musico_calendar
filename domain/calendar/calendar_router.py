@@ -20,7 +20,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
 
     db_event = Event(
         date=event.date,
-        event_name=event.event_name,
+        event_type=event.event_type,
         location=event.location,
         duration=event.duration,
         notes=event.notes,
@@ -34,7 +34,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
 
 @router.get("/calendar/", response_model=list[EventResponse])
 def read_events(db: Session = Depends(get_db)):
-    #  can set a limit paramter and limit query.
+    #  can set a limit parameter and limit query.
     events = db.query(Event).all()
     return events
 
@@ -61,7 +61,7 @@ def update_event(event_id: int, event: EventUpdate, db: Session = Depends(get_db
         )
 
     db_event.date = event.date
-    db_event.event_name = event.event_name
+    db_event.event_type = event.event_type
     db_event.location = event.location
     db_event.duration = event.duration
     db_event.notes = event.notes
