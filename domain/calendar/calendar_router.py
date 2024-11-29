@@ -15,7 +15,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
     if check_date:
         raise HTTPException(
             status_code=400,
-            detail=f"I'm sorry, {event.date} is taken. Please reschedule",
+            detail=f"I'm sorry,{event.date} is taken. Please reschedule",
         )
 
     db_event = Event(
